@@ -7,5 +7,5 @@ DL_DIR="browsers/chromium-local/chrome-linux/"
 sudo yum install GConf2 -y
 
 wget "http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip"
-unzip chromedriver_$PLATFORM.zip -d $DL_DIR
+sudo unzip chromedriver_$PLATFORM.zip -d $(echo $PATH | cut -d: -f1)
 rm -fv chromedriver_$PLATFORM.zip
