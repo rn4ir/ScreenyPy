@@ -14,7 +14,7 @@ options.add_argument('disable-gpu')
 
 driver = webdriver.Chrome(chrome_options=options)
 
-driver.get('https://muchbits.com')
+driver.get('https://wikipedia.org')
 driver.implicitly_wait(10)
 
-driver.get_screenshot_as_file('muchbits.png')
+driver.get_screenshot_as_file('wiki.png')
