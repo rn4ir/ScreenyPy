@@ -10,3 +10,5 @@ sudo yum install ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xor
 wget "http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip"
 sudo unzip chromedriver_$PLATFORM.zip -d $(echo $PATH | cut -d: -f1)
 rm -fv chromedriver_$PLATFORM.zip
+
+python download_chromium.py
