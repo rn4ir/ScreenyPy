@@ -24,6 +24,6 @@ for proxy in PROXY_LIST:
     start_time = time.time()
     driver.get('http://whatismyipaddress.com/')
     print("--- %s seconds ---" % (time.time() - start_time))
-    #driver.implicitly_wait(10)
+    driver.implicitly_wait(10)
 
     driver.get_screenshot_as_file(FILE_NAME)
