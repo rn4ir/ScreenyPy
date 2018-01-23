@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
 from selenium import webdriver
-import time
+import time, requests, json
 
 CHROME_BIN = "/bin/chromium-browser"
-PROXY_LIST = ["151.80.140.233:54566", "173.249.9.82:8080"]
+PROXY_URL = "http://pubproxy.com/api/proxy?limit=3&format=txt&https=true&type=http&last_check=5&level=elite"
+read_proxy = requests.get(PROXY_URL)
+
+PROXY_LISTTXT = read_proxy.text
+PROXY_LIST = PROXY_LISTTXT.splitlines()
+
 ctr = 0
 
 for proxy in PROXY_LIST:
@@ -21,8 +26,8 @@ for proxy in PROXY_LIST:
     driver = webdriver.Chrome(chrome_options=options)
 
     start_time = time.time()
-    driver.get('http://whatismyipaddress.com/')
-    print("--- %s seconds ---" % (time.time() - start_time))
+    driver.get('http://whatismyip.host/')
+    print("--- screenshot " + "ip_chromium" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
     driver.implicitly_wait(10)
 
     driver.get_screenshot_as_file(FILE_NAME)
