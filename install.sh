@@ -3,13 +3,16 @@
 install_chromium() {
     yum install epel-release -y
     yum install chromium -y
-    yum install xorg-x11-server-Xvfb -y
 
     echo -e "\nChromium installation complete.\n"
     which chromium
 }
 
 install_firefox() {
+    yum install xorg-x11-server-Xvfb -y
+    Xvfb :99 &
+    export DISPLAY=:99
+
     cd /usr/local
     wget https://ftp.mozilla.org/pub/firefox/releases/57.0.4/linux-x86_64/en-US/firefox-57.0.4.tar.bz2
     tar xvjf firefox*
