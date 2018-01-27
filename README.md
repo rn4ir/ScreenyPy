@@ -12,6 +12,13 @@ The script currently using only supports Chromium and has a website URL hardcode
   
 #### Usage  
   
+1. Install all the prerequisites:  
+```
+$ python3 -m pip install -r requirements.txt
+$ sudo ./install.sh
+```
+  
+2. To generate a screenshot:  
 ```
 $ python screeny.py
 --- screenshot 52.144.57.75_chromium1.png generated in 1.264365196228027 seconds ---
@@ -21,6 +28,6 @@ $ python screeny.py
   
 ##### TODO:  
 
-- Firfox support.
+- Switch between browser options: Chromium/Firefox.
 - Accept user input for the website URL, to test any URL.
-- a more reliable source of proxies.
+- A more reliable source of proxies.
