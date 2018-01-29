@@ -15,6 +15,8 @@ PROXY_LIST = PROXY_LISTTXT.splitlines()
 
 ctr = 0
 
+
+
 for proxy in PROXY_LIST:
     ctr = ctr+1
     """
@@ -55,3 +57,24 @@ for proxy in PROXY_LIST:
 
     driver.get_screenshot_as_file(FILE_NAME)
 
+def main():
+    """
+    Main function.
+    Checks command-line arguments and calls the relevant function.
+    """
+
+    cli_argparser = argparse.ArgumentParser(description='pymyip - A python script that generates screenshots of a website from various random locations.')
+    cli_argparser.add_argument('-c', '--chrome', nargs='?', const=1, help="Generates screenshots using Chromium", required=False)
+    cli_argparser.add_argument('-f', '--firefox', nargs='?', const=1, help="Generates screenshots using Mozilla Firefox", required=False)
+
+    cli_args = cli_argparser.parse_args()
+
+    if (cli_args.chrome):
+        (myip("a"))
+    elif (cli_args.firefox):
+        (myip("l"))
+    else:
+        print ("\nYour WAN IP is: " + myip() + "\n")
+
+if __name__ == '__main__':
+    sys.exit(main())
