@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys, argparse
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import time, requests, json
@@ -12,10 +13,13 @@ read_proxy = requests.get(PROXY_URL)
 
 PROXY_LISTTXT = read_proxy.text
 PROXY_LIST = PROXY_LISTTXT.splitlines()
+print ("\nThe website will be test from the following IPs:\n")
+for proxy in PROXY_LIST:
+    print (proxy)
 
-ctr = 0
 
-def shots_chromium(){
+def shots_chromium():
+    ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
         FILE_NAME = proxy.split(':')[0] + "_chromium" + str(ctr) + ".png"
@@ -35,9 +39,10 @@ def shots_chromium(){
         driver.implicitly_wait(10)
 
         driver.get_screenshot_as_file(FILE_NAME)
-}
+        driver.quit()
 
-def shots_firefox(){
+def shots_firefox():
+    ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
         FILE_NAME = proxy.split(':')[0] + "_firefox" + str(ctr) + ".png"
@@ -57,7 +62,7 @@ def shots_firefox(){
         driver.implicitly_wait(10)
 
         driver.get_screenshot_as_file(FILE_NAME)
-}
+        driver.quit()
 
 def main():
     """
@@ -72,10 +77,13 @@ def main():
     cli_args = cli_argparser.parse_args()
 
     if (cli_args.chrome):
+        print ("\nBrowser selected: Chromium\nGenerating screenshots using Chromium\n\n")
         shots_chromium()
     elif (cli_args.firefox):
+        print ("\nBrowser selected: Firefox\nGenerating screenshots using Firefox\n\n")
         shots_firefox()
     else:
+        print ("\nBrowser selected: None\nGenerating screenshots using Chromium AND Firefox\n\n")
         shots_chromium()
         shots_firefox()
 
