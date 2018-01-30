@@ -13,9 +13,6 @@ read_proxy = requests.get(PROXY_URL)
 
 PROXY_LISTTXT = read_proxy.text
 PROXY_LIST = PROXY_LISTTXT.splitlines()
-print ("\nThe website will be test from the following IPs:\n")
-for proxy in PROXY_LIST:
-    print (proxy)
 
 
 def shots_chromium():
@@ -75,6 +72,10 @@ def main():
     cli_argparser.add_argument('-f', '--firefox', nargs='?', const=1, help="Generates screenshots using Mozilla Firefox", required=False)
 
     cli_args = cli_argparser.parse_args()
+
+    print ("\nThe website will be test from the following IPs:\n")
+    for proxy in PROXY_LIST:
+        print (proxy)
 
     if (cli_args.chrome):
         print ("\nBrowser selected: Chromium\nGenerating screenshots using Chromium\n\n")
