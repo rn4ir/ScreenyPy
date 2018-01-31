@@ -9,6 +9,7 @@ CHROME_BIN = "/bin/chromium-browser"
 FIREFOX_BIN = "/bin/firefox"
 
 PROXY_URL = "http://pubproxy.com/api/proxy?limit=3&format=txt&https=true&type=http&last_check=5&level=elite"
+TEST_URL = "http://en.wikipedia.org/"
 read_proxy = requests.get(PROXY_URL)
 
 PROXY_LISTTXT = read_proxy.text
@@ -31,7 +32,7 @@ def shots_chromium():
         driver = webdriver.Chrome(chrome_options=options)
 
         start_time = time.time()
-        driver.get('http://en.wikipedia.org/')
+        driver.get(TEST_URL)
         print("--- screenshot " + proxy.split(':')[0] + "_chromium" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
 
@@ -54,7 +55,7 @@ def shots_firefox():
         driver = webdriver.Firefox(firefox_options=options)
 
         start_time = time.time()
-        driver.get('http://en.wikipedia.org/')
+        driver.get(TEST_URL)
         print("--- screenshot " + proxy.split(':')[0] + "_firefox" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
 
