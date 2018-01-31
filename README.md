@@ -74,5 +74,5 @@ Generating screenshots using Firefox
   
 ##### TODO:  
 
-- Accept user input for the website URL, to test any URL.
+- User-Input validation.
 - A more reliable source of proxies.
