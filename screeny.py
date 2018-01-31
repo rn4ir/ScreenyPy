@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, argparse
+import sys, os, argparse
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import time, requests, json
@@ -16,7 +16,7 @@ PROXY_LISTTXT = read_proxy.text
 PROXY_LIST = PROXY_LISTTXT.splitlines()
 
 
-def shots_chromium():
+def shots_chromium(url):
     ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
@@ -32,14 +32,15 @@ def shots_chromium():
         driver = webdriver.Chrome(chrome_options=options)
 
         start_time = time.time()
-        driver.get(TEST_URL)
+        #driver.get(TEST_URL)
+        driver.get(url)
         print("--- screenshot " + proxy.split(':')[0] + "_chromium" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
 
         driver.get_screenshot_as_file(FILE_NAME)
         driver.quit()
 
-def shots_firefox():
+def shots_firefox(url):
     ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
@@ -55,7 +56,8 @@ def shots_firefox():
         driver = webdriver.Firefox(firefox_options=options)
 
         start_time = time.time()
-        driver.get(TEST_URL)
+        #driver.get(TEST_URL)
+        driver.get(url)
         print("--- screenshot " + proxy.split(':')[0] + "_firefox" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
 
@@ -69,8 +71,8 @@ def main():
     """
 
     cli_argparser = argparse.ArgumentParser(description='screenypy - A python script that generates screenshots of a website from various random locations.')
-    cli_argparser.add_argument('-c', '--chrome', nargs='?', const=1, help="Generates screenshots using Chromium", required=False)
-    cli_argparser.add_argument('-f', '--firefox', nargs='?', const=1, help="Generates screenshots using Mozilla Firefox", required=False)
+    cli_argparser.add_argument('-c', '--chrome',  help="Generates screenshots using Chromium", required=False)
+    cli_argparser.add_argument('-f', '--firefox', help="Generates screenshots using Mozilla Firefox", required=False)
 
     cli_args = cli_argparser.parse_args()
 
@@ -80,10 +82,10 @@ def main():
 
     if (cli_args.chrome):
         print ("\nBrowser selected: Chromium\nGenerating screenshots using Chromium\n\n")
-        shots_chromium()
+        shots_chromium(cli_args.chrome)
     elif (cli_args.firefox):
         print ("\nBrowser selected: Firefox\nGenerating screenshots using Firefox\n\n")
-        shots_firefox()
+        shots_firefox(cli_args.firefox)
     else:
         print ("\nBrowser selected: None\nGenerating screenshots using Chromium AND Firefox\n\n")
         shots_chromium()
