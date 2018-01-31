@@ -74,6 +74,10 @@ def main():
     cli_argparser.add_argument('-c', '--chrome',  help="Generates screenshots using Chromium", required=False)
     cli_argparser.add_argument('-f', '--firefox', help="Generates screenshots using Mozilla Firefox", required=False)
 
+    if len(sys.argv)==1:
+        cli_argparser.print_help()
+        sys.exit(1)
+
     cli_args = cli_argparser.parse_args()
 
     print ("\nThe website will be test from the following IPs:\n")
@@ -88,8 +92,8 @@ def main():
         shots_firefox(cli_args.firefox)
     else:
         print ("\nBrowser selected: None\nGenerating screenshots using Chromium AND Firefox\n\n")
-        shots_chromium()
-        shots_firefox()
+        shots_chromium(TEST_URL)
+        shots_firefox(TEST_URL)
 
 if __name__ == '__main__':
     sys.exit(main())
