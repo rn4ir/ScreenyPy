@@ -1,21 +1,27 @@
 #!/usr/bin/env python
 
+# imports
 import sys, os, argparse
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import time, requests, json
 
+
+# Browser Binary locations
 CHROME_BIN = "/bin/chromium-browser"
 FIREFOX_BIN = "/bin/firefox"
 
+# Proxy List generated from pubproxy.com
 PROXY_URL = "http://pubproxy.com/api/proxy?limit=3&format=txt&https=true&type=http&last_check=5&level=elite"
-TEST_URL = "http://en.wikipedia.org/"
 read_proxy = requests.get(PROXY_URL)
 
 PROXY_LISTTXT = read_proxy.text
 PROXY_LIST = PROXY_LISTTXT.splitlines()
 
+# Test URL to be used in case of no user input
+TEST_URL = "http://en.wikipedia.org/"
 
+# Function to generate screenshots using Chormium
 def shots_chromium(url):
     ctr = 0
     for proxy in PROXY_LIST:
@@ -23,6 +29,7 @@ def shots_chromium(url):
         FILE_NAME = proxy.split(':')[0] + "_chromium" + str(ctr) + ".png"
         options = webdriver.ChromeOptions()
 
+        # Browser Options
         options.binary_location = CHROME_BIN
         options.add_argument('headless')
         options.add_argument('window-size=1200x600')
@@ -32,7 +39,6 @@ def shots_chromium(url):
         driver = webdriver.Chrome(chrome_options=options)
 
         start_time = time.time()
-        #driver.get(TEST_URL)
         driver.get(url)
         print("--- screenshot " + proxy.split(':')[0] + "_chromium" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
@@ -40,12 +46,14 @@ def shots_chromium(url):
         driver.get_screenshot_as_file(FILE_NAME)
         driver.quit()
 
+# Function to generate screenshots using Firefox
 def shots_firefox(url):
     ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
         FILE_NAME = proxy.split(':')[0] + "_firefox" + str(ctr) + ".png"
 
+        # Browser Options
         options = Options()
         options.binary_location = FIREFOX_BIN
         options.add_argument('headless')
@@ -56,7 +64,6 @@ def shots_firefox(url):
         driver = webdriver.Firefox(firefox_options=options)
 
         start_time = time.time()
-        #driver.get(TEST_URL)
         driver.get(url)
         print("--- screenshot " + proxy.split(':')[0] + "_firefox" + str(ctr) + ".png"  +  " generated in %s seconds ---" % (time.time() - start_time))
         driver.implicitly_wait(10)
