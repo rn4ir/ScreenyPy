@@ -1,5 +1,18 @@
 #### ScreenyPy - A command-line tool to take screenshots of websites from different geographical locations. (***WIP***)
 
+#### What?
+
+Name: Screenypy 
+Description: A python-based command-line tool that takes screenshots of websites/URLs from different geographical   
+location using publicly available proxy servers.  
+  
+#### Why?
+
+This tool provides a really quick, easy and efficient way to chck the status of websites, to check if they're   
+online and accessible from various geographical locations, by taking screenshots of the website/URL from the   
+command-line interface.  
+The script currently takes screenshots using Chromium and Firefox.  
+
 #### Requirements
 
 - Python 3.x
@@ -7,8 +20,6 @@
 
 #### Purpose
 
-The purpose of this script is to take screenshots for a given URL from different geographical locations, from the command-line interface.  
-The script currently using only supports Chromium and has a website URL hardcoded within.
   
 #### Usage  
   
