@@ -15,12 +15,9 @@ The script currently takes screenshots using Chromium and Firefox.
 
 #### Requirements
 
-- Python 3.x - *If you don't have [Python 3](https://www.python.org/downloads/) installed already, it can be installed using [this simple shell script](https://github.com/rn4ir/sysadmin-shell-scripts/blob/master/installation_scripts/install_python3.sh)*
+- Python 3.x - *If [Python 3.x](https://www.python.org/downloads/) isn't installed already, it can be installed using [this simple shell script](https://github.com/rn4ir/sysadmin-shell-scripts/blob/master/installation_scripts/install_python3.sh).*
 - [requirements.txt](https://github.com/rn4ir/ScreenyPy/blob/master/requirements.txt)
 
-#### Purpose
-
-  
 #### Usage  
   
 1. Install all the prerequisites:  
@@ -85,5 +82,6 @@ Generating screenshots using Firefox
   
 ##### TODO:  
 
+- Tests
 - User-Input validation.
 - A more reliable source of proxies.
