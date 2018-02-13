@@ -15,7 +15,7 @@ The script currently takes screenshots using Chromium and Firefox.
 
 #### Requirements
 
-- Python 3.x
+- Python 3.x - *If you don't have [Python 3](https://www.python.org/downloads/) installed already, it can be installed using [this simple shell script](https://github.com/rn4ir/sysadmin-shell-scripts/blob/master/installation_scripts/install_python3.sh)*
 - [requirements.txt](https://github.com/rn4ir/ScreenyPy/blob/master/requirements.txt)
 
 #### Purpose
