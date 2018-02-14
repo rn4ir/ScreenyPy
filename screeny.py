@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+"""
+ScreenyPy - A CLI tool to take websites' screenshots.
+"""
 # imports
 import sys, os, argparse
 from selenium import webdriver
@@ -23,6 +26,10 @@ TEST_URL = "http://en.wikipedia.org/"
 
 # Function to generate screenshots using Chormium
 def shots_chromium(url):
+    """
+    Chromium function.
+    Takes screenshots using Chromium.
+    """
     ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
@@ -48,6 +55,10 @@ def shots_chromium(url):
 
 # Function to generate screenshots using Firefox
 def shots_firefox(url):
+    """
+    Firefox function.
+    Takes screenshots using Firefox.
+    """
     ctr = 0
     for proxy in PROXY_LIST:
         ctr = ctr+1
