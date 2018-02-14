@@ -16,7 +16,8 @@ The script currently takes screenshots using Chromium and Firefox.
 #### Requirements
 
 - Python 3.x - *If [Python 3.x](https://www.python.org/downloads/) isn't installed already, it can be installed using [this simple shell script](https://github.com/rn4ir/sysadmin-shell-scripts/blob/master/installation_scripts/install_python3.sh).*
-- [requirements.txt](https://github.com/rn4ir/ScreenyPy/blob/master/requirements.txt)
+- [requirements.txt](https://github.com/rn4ir/ScreenyPy/blob/master/requirements.txt)  
+  
 
 #### Usage  
   
@@ -24,7 +25,11 @@ The script currently takes screenshots using Chromium and Firefox.
 ```
 $ python3 -m pip install -r requirements.txt
 $ sudo ./install.sh
-```
+```  
+1a. ***A note on the prerequisites*** - The install script, `install.sh` installs Chromium, Firefox, `chromedriver` and `geckodriver`.  
+Mismatches in compatible versions may occur between Chromium and `chromedriver`, causing the script to fail when taking screenshots  
+using Chromium. For optimal results, make sure that the Chromium and `chromedriver` versions are compatible. For example, `chromedriver v.2.35`  
+is not compatible with Chromium 61.0.3163.100 - this version of Chromium requires `chromedriver v.2.33`.  
   
 2. Options:  
 ```
