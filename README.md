@@ -2,9 +2,9 @@
 
 ### What?
 
-Name: Screenypy 
-Description: A python-based command-line tool that takes screenshots of websites/URLs from different geographical   
-location using publicly available proxy servers.  
+Name: Screenypy  
+
+Description: A python-based command-line tool that takes screenshots of websites/URLs from different geographical location using publicly available proxy servers.  
   
 ### Why?
 
