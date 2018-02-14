@@ -1,34 +1,34 @@
-#### ScreenyPy - A command-line tool to take screenshots of websites from different geographical locations. (***WIP***)
+## ScreenyPy - A command-line tool to take screenshots of websites from different geographical locations. (***WIP***)
 
-#### What?
+### What?
 
 Name: Screenypy 
 Description: A python-based command-line tool that takes screenshots of websites/URLs from different geographical   
 location using publicly available proxy servers.  
   
-#### Why?
+### Why?
 
 This tool provides a really quick, easy and efficient way to chck the status of websites, to check if they're   
 online and accessible from various geographical locations, by taking screenshots of the website/URL from the   
 command-line interface.  
 The script currently takes screenshots using Chromium and Firefox.  
 
-#### Requirements
+### Requirements
 
 - Python 3.x - *If [Python 3.x](https://www.python.org/downloads/) isn't installed already, it can be installed using [this simple shell script](https://github.com/rn4ir/sysadmin-shell-scripts/blob/master/installation_scripts/install_python3.sh).*
 - [requirements.txt](https://github.com/rn4ir/ScreenyPy/blob/master/requirements.txt)  
   
 
-#### Usage  
+### Usage  
   
-1. Install all the prerequisites:  
+Install all the prerequisites:  
 ```
 $ python3 -m pip install -r requirements.txt
 $ sudo ./install.sh
 ```  
-  1a. ***A note on the prerequisites*** - The install script, `install.sh` installs Chromium, Firefox, `chromedriver` and `geckodriver`. Mismatches in compatible versions may occur between Chromium and `chromedriver`, causing the script to fail when taking screenshots using Chromium. For optimal results, make sure that the Chromium and `chromedriver` versions are compatible. For example, `chromedriver v.2.35` is not compatible with Chromium 61.0.3163.100 - this version of Chromium requires `chromedriver v.2.33`.  
+***A note on the prerequisites*** - The install script, `install.sh` installs Chromium, Firefox, `chromedriver` and `geckodriver`. Mismatches in compatible versions may occur between Chromium and `chromedriver`, causing the script to fail when taking screenshots using Chromium. For optimal results, make sure that the Chromium and `chromedriver` versions are compatible. For example, `chromedriver v.2.35` is not compatible with Chromium 61.0.3163.100 - this version of Chromium requires `chromedriver v.2.33`.  
   
-2. Options:  
+#### Options  
 ```
 $ python screeny.py --help
 
@@ -45,7 +45,7 @@ optional arguments:
                         Generates screenshots using Mozilla Firefox
 ```
   
-2a. To generate a screenshot using Chromium:  
+**a.** To generate a screenshot using Chromium:  
 ```
 $ python screeny.py -c
 
@@ -63,7 +63,7 @@ Generating screenshots using Chromium
 --- screenshot 187.53.62.82_chromium2.png generated in 18.873610734939575 seconds ---
 --- screenshot 201.183.227.197_chromium3.png generated in 2.50515151023865 seconds ---
 ```  
-2b. To generate a screenshot using Firefox:
+**b.** To generate a screenshot using Firefox:
 ```
 $ python screeny.py -f
 
@@ -82,7 +82,7 @@ Generating screenshots using Firefox
 --- screenshot 209.126.124.73_firefox3.png generated in 3.439244270324707 seconds ---
 ```
   
-##### TODO:  
+#### TODO:  
 
 - Tests
 - User-Input validation.
