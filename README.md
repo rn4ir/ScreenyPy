@@ -1,4 +1,4 @@
-## ScreenyPy - A command-line tool to take screenshots of websites from different geographical locations. (***WIP***)
+## ScreenyPy - A command-line tool to take screenshots of websites from different geographical locations.
 
 ### What?
 
